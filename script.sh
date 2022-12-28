@@ -27,7 +27,7 @@ then
 fi
 echo "Terraform Show\n"
 
-mock_recco=$(python gen_recco.py tf.show)
+mock_recco=$(python mainRepo/gen_recco.py tf.show)
 status=$?
 if [ $status != 0 ] 
 then
@@ -56,7 +56,7 @@ echo "Cloudfix-Linter init\n${linter_init}"
 export CLOUDFIX_FILE=true
 export CLOUDFIX_TERRAFORM_LOCAL=true 
 raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
-markup_recco=$(python beautifier.py "${raw_recco}");
+markup_recco=$(python mainRepo/beautifier.py "${raw_recco}");
 res=$(gh api repos/${repository}/issues/${pr_number}/comments \
             -f body="${markup_recco}");
 status=$?
