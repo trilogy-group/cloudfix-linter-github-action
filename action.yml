@@ -20,6 +20,9 @@ on:
 runs:
   using: composite
   steps:
+    - run: bash script.sh
+      shell: bash
+
     - name: Checkout
       uses: actions/checkout@v3
 
