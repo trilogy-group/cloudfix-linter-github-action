@@ -21,7 +21,6 @@ jobs:
       
       - name: Comment Reccomendation
         id: prcomment
-        if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: export pr_number=${{ github.event.pull_request.number }}; export repository=${{ github.repository }}; sh script.sh
