@@ -21,7 +21,7 @@ runs:
   using: composite
   steps:
     - name: Example
-      run: cat ${pr_number}
+      run: echo ${pr_number}
       shell: bash
 
 # jobs:
