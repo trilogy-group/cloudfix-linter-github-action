@@ -18,6 +18,7 @@ on:
   pull_request:
 
 runs:
+  using: composite
   steps:
     - name: Example
       run: cat ${pr_number}
