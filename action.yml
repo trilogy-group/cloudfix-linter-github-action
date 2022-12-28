@@ -17,24 +17,30 @@ inputs:
 on:
   pull_request:
 
-jobs:
-  terraform:
-    name: "Cloudfix-Linter"
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+runs:
+  steps:
+    - name: Example
+      run: cat ${pr_number}
+      shell: bash
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          # terraform_version: 0.13.0:
-          cli_config_credentials_token: ${{ env.tf_cli_config_credentials_token }}
+# jobs:
+#   terraform:
+#     name: "Cloudfix-Linter"
+#     runs-on: ubuntu-latest
+#     permissions:
+#       pull-requests: write
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+
+#       - name: Setup Terraform
+#         uses: hashicorp/setup-terraform@v1
+#         with:
+#           # terraform_version: 0.13.0:
+#           cli_config_credentials_token: ${{ env.tf_cli_config_credentials_token }}
       
-      - name: Comment Reccomendation
-        id: prcomment
-        env:
-          GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-        run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; sh script.sh
+#       - name: Comment Reccomendation
+#         id: prcomment
+#         env:
+#           GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+#         run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; sh script.sh
