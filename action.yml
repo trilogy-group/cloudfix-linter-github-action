@@ -31,10 +31,10 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           # terraform_version: 0.13.0:
-          cli_config_credentials_token: ${{ github.event.inputs.tf_cli_config_credentials_token }}
+          cli_config_credentials_token: ${{ inputs.tf_cli_config_credentials_token }}
       
       - name: Comment Reccomendation
         id: prcomment
         env:
-          GH_TOKEN: ${{ github.event.inputs.GITHUB_TOKEN }}
-        run: export pr_number=${{ github.event.inputs.pr_number }}; export repository=${{ github.event.inputs.repository }}; sh script.sh
+          GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+        run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; sh script.sh
