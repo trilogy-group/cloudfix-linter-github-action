@@ -25,7 +25,3 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: export pr_number=${{ github.event.pull_request.number }}; export repository=${{ github.repository }}; sh script.sh
-
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve -input=false

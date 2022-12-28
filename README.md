@@ -1,1 +1,0 @@
-# cloudfix-linter-github-action
