@@ -1,4 +1,18 @@
 name: "Cloudfix-Linter"
+inputs:
+  tf_cli_config_credentials_token: 
+    description: terraform cli config credentials token
+    required: true
+  GITHUB_TOKEN:
+    description: 'Github token of the repository (automatically created by Github)'
+    default: ${{ github.token }}
+    required: true
+  pr_number:
+    description: 'Manual pull request number'
+    required: true
+  repository:
+    description: repository_owner/repository_name
+    required: true
 
 on:
   pull_request:
@@ -17,10 +31,10 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           # terraform_version: 0.13.0:
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          cli_config_credentials_token: ${{ inputs.tf_cli_config_credentials_token }}
       
       - name: Comment Reccomendation
         id: prcomment
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: export pr_number=${{ github.event.pull_request.number }}; export repository=${{ github.repository }}; sh script.sh
+          GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+        run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; sh script.sh
