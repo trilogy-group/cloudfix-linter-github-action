@@ -17,11 +17,11 @@ inputs:
 on:
   pull_request:
 
+permissions:
+  pull-requests: write
+
 runs:
-  name: "Cloudfix-Linter"
   runs-on: ubuntu-latest
-  permissions:
-    pull-requests: write
   steps:
     - name: Checkout
       uses: actions/checkout@v3
