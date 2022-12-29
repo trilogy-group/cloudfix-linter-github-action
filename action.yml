@@ -1,5 +1,10 @@
 name: "Cloudfix-Linter"
 inputs:
+  mock_recommendations:
+    description: boolean to activate mock recommendations
+    required: true
+    default: false
+  
   tf_cli_config_credentials_token: 
     description: terraform cli config credentials token
     required: true
@@ -8,15 +13,20 @@ inputs:
     default: ${{ github.token }}
     required: true
   pr_number:
-    description: 'Manual pull request number'
+    description: 'Pull request id'
     required: true
   repository:
     description: repository_owner/repository_name
     required: true
+
 secrets:
-  username:
+  cloudfix_username:
     description: cloudfix username
-    
+    required: false
+  cloudfix_password:
+    description: cloudfix password
+    required: false
+
 on:
   pull_request:
 
@@ -32,10 +42,6 @@ runs:
         repository: trilogy-group/cloudfix-linter-github-action
         path: mainRepo
 
-    - name: Example
-      run: echo ${{inputs.pr_number}}
-      shell: bash
-
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
@@ -46,27 +52,6 @@ runs:
       id: prcomment
       env:
         GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+        CLOUDFIX_USERNAME: ${{ secrets.cloudfix_username }}
       run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; sh mainRepo/script.sh
       shell: bash
-
-# jobs:
-#   terraform:
-#     name: "Cloudfix-Linter"
-#     runs-on: ubuntu-latest
-#     permissions:
-#       pull-requests: write
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
-
-#       - name: Setup Terraform
-#         uses: hashicorp/setup-terraform@v1
-#         with:
-#           # terraform_version: 0.13.0:
-#           cli_config_credentials_token: ${{ env.tf_cli_config_credentials_token }}
-      
-#       - name: Comment Reccomendation
-#         id: prcomment
-#         env:
-#           GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-#         run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; sh script.sh
