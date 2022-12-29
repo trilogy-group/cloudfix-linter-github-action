@@ -57,6 +57,7 @@ export CLOUDFIX_TERRAFORM_LOCAL=true
 raw=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
 raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
 echo $raw
+ls
 markup_recco=$(python mainRepo/beautifier.py "${raw_recco}");
 res=$(gh api repos/${repository}/issues/${pr_number}/comments \
             -f body="${markup_recco}");
