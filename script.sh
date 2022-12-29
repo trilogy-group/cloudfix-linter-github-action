@@ -56,7 +56,7 @@ echo "Cloudfix-Linter initialised\n"
 export CLOUDFIX_TERRAFORM_LOCAL=true 
 raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
 echo "Recommendations: $raw\n$raw_recco"
-echo "$CLOUDFIX_FILE"
+echo "cloudfix_file: $CLOUDFIX_FILE"
 
 if [ -z "$raw_recco" ]
 then
