@@ -64,7 +64,6 @@ then
 fi
 
 markup_recco=$(python mainRepo/beautifier.py "${raw_recco}");
-echo $CLOUDFIX_FILE
 
 res=$(gh api repos/${repository}/issues/${pr_number}/comments \
             -f body="${markup_recco}");

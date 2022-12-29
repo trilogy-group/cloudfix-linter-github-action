@@ -3,7 +3,7 @@ inputs:
   mock_recommendations:
     description: boolean to activate mock recommendations
     required: true
-    default: true
+    default: false
   tf_cli_config_credentials_token: 
     description: terraform cli config credentials token
     required: true
@@ -54,5 +54,5 @@ runs:
         CLOUDFIX_FILE: ${{ inputs.mock_recommendations }}
         pr_number: ${{ inputs.pr_number }}
         repository: ${{ inputs.repository }}
-      run: sh mainRepo/script.sh
+      run: echo inputs.mock_recommendations; sh mainRepo/script.sh
       shell: bash
