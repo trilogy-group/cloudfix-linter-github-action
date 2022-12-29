@@ -53,7 +53,6 @@ then
 fi
 echo "Cloudfix-Linter initialised\n"
 
-echo "boolean is $ENABLE_MOCK_RECOMMENDATION"
 if [ "$ENABLE_MOCK_RECOMMENDATION" = "true" ]
 then
     export CLOUDFIX_FILE=true
@@ -68,9 +67,9 @@ if [ -z "$raw_recco" ]
 then
       raw_recco="No Recommendations"
 fi
+echo "Recommendations: ${raw_reccos}"
 
 markup_recco=$(python mainRepo/beautifier.py "${raw_recco}");
-
 res=$(gh api repos/${repository}/issues/${pr_number}/comments \
             -f body="${markup_recco}");
 status=$?
