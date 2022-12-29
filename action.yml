@@ -54,5 +54,5 @@ runs:
         ENABLE_MOCK_RECOMMENDATION: "${{ inputs.mock_recommendations }}"
         pr_number: ${{ inputs.pr_number }}
         repository: ${{ inputs.repository }}
-      run: echo ${{ inputs.mock_recommendations }}; sh mainRepo/script.sh
+      run: echo $ENABLE_MOCK_RECOMMENDATION; sh mainRepo/script.sh
       shell: bash
