@@ -18,7 +18,7 @@ fi
 echo "Terraform Validate\n"
 
 
-terraform_show=$(terraform show -json | head -2 | tail -1 > tf.show)
+terraform_show=$(terraform show -json | head -2 | tail -1 2> tf.show)
 status=$?
 if [ $status != 0 ] 
 then
@@ -36,7 +36,7 @@ then
 fi
 echo "Generate Mock Reccomendations\n"
 
-install=$(bash mainRepo/installScript.sh)
+install=$(bash mainRepo/installScript.sh 2> temp)
 status=$?
 if [ $status != 0 ] 
 then
