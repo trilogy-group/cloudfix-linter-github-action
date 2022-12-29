@@ -49,6 +49,6 @@ runs:
       id: prcomment
       env:
         GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-        CLOUDFIX_USERNAME: ${{ secrets.cloudfix_username }}
-      run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; sh mainRepo/script.sh
+        CLOUDFIX_USERNAME: ${{ inputs.cloudfix_username }}
+      run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; echo $CLOUDFIX_USERNAME; sh mainRepo/script.sh
       shell: bash
