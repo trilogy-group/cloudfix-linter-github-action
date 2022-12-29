@@ -53,7 +53,7 @@ then
 fi
 echo "Cloudfix-Linter initialised\n"
 
-export CLOUDFIX_FILE=true
+export CLOUDFIX_FILE=ENABLE_MOCK_RECOMM
 export CLOUDFIX_TERRAFORM_LOCAL=true 
 echo ${CLOUDFIX_USERNAME}
 raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
