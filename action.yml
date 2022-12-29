@@ -54,5 +54,5 @@ runs:
         CLOUDFIX_FILE: ${{ inputs.mock_recommendations }}
         pr_number: ${{ inputs.pr_number }}
         repository: ${{ inputs.repository }}
-      run: echo inputs.mock_recommendations; sh mainRepo/script.sh
+      run: echo ${{ inputs.mock_recommendations }}; sh mainRepo/script.sh
       shell: bash
