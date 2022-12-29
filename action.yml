@@ -3,7 +3,6 @@ inputs:
   mock_recommendations:
     description: boolean to activate mock recommendations
     required: true
-    default: true
   tf_cli_config_credentials_token: 
     description: terraform cli config credentials token
     required: true
