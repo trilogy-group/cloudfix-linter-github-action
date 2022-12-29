@@ -17,6 +17,8 @@ inputs:
   repository:
     description: repository_owner/repository_name
     required: true
+
+secrets:
   cloudfix_username:
     description: cloudfix username
     required: false
