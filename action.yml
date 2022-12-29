@@ -52,5 +52,7 @@ runs:
         CLOUDFIX_USERNAME: ${{ inputs.cloudfix_username }}
         CLOUDFIX_PASSWORD: ${{ inputs.cloudfix_password }}
         ENABLE_MOCK_RECOMM: ${{ inputs.mock_recommendations }}
-      run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; echo $CLOUDFIX_USERNAME; sh mainRepo/script.sh
+        pr_number: ${{ inputs.pr_number }}
+        repository: ${{ inputs.repository }}
+      run: sh mainRepo/script.sh
       shell: bash
