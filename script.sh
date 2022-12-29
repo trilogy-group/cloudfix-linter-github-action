@@ -53,6 +53,13 @@ then
 fi
 echo "Cloudfix-Linter initialised\n"
 
+if [ $ENABLE_MOCK_RECOMMENDATION == 'true']
+then
+    export CLOUDFIX_FILE=true
+else
+    export CLOUDFIX_FILE=false
+fi
+
 export CLOUDFIX_TERRAFORM_LOCAL=true 
 raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
 echo "Recommendations: $raw\n$raw_recco"
