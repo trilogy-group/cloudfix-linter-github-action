@@ -43,7 +43,7 @@ runs:
       id: prcomment
       env:
         GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-      run: export pr_number=${{ inputs.pr_number }}; export repository=${{ inputs.repository }}; pwd; ls; cat main.tf; git branch; sh mainRepo/script.sh
+      run: pr_number=${{ inputs.pr_number }}; repository=${{ inputs.repository }}; sh mainRepo/script.sh
       shell: bash
 
 # jobs:
