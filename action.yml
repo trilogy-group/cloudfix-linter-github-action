@@ -13,7 +13,10 @@ inputs:
   repository:
     description: repository_owner/repository_name
     required: true
-
+secrets:
+  username:
+    description: cloudfix username
+    
 on:
   pull_request:
 
