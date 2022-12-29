@@ -59,8 +59,8 @@ markup_recco=$(python mainRepo/beautifier.py "${raw_recco}");
 res=$(gh api repos/${repository}/issues/${pr_number}/comments \
             -f body="${markup_recco}");
 status=$?
-echo "${res}"
 if [ $status != 0 ] 
 then
+    echo "${res}"
     exit 1
 fi
