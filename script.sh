@@ -36,7 +36,7 @@ then
 fi
 echo "Generate Mock Reccomendations\n"
 
-install=$(bash mainRepo/installScript.sh > temp.txt)
+install=$(bash mainRepo/installScript.sh)
 status=$?
 if [ $status != 0 ] 
 then
@@ -44,14 +44,14 @@ then
 fi
 echo "Install complete"
 
-linter_init=$(./cloudfix-linter/cloudfix-linter init > temp)
+linter_init=$(./cloudfix-linter/cloudfix-linter init)
 status=$?
 if [ $status != 0 ] 
 then
     echo "Cloudfix-Linter init\n${linter_init}"
     exit 1
 fi
-echo "Cloudfix-Linter init\n${linter_init}"
+echo "Cloudfix-Linter initialised\n"
 
 export CLOUDFIX_FILE=true
 export CLOUDFIX_TERRAFORM_LOCAL=true 
