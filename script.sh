@@ -53,6 +53,7 @@ then
 fi
 echo "Cloudfix-Linter initialised\n"
 
+echo "$ENABLE_MOCK_RECOMMENDATION"
 if [ "$ENABLE_MOCK_RECOMMENDATION" == "true" ]
 then
     export CLOUDFIX_FILE=true
