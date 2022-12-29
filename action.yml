@@ -51,7 +51,7 @@ runs:
         GH_TOKEN: ${{ inputs.GITHUB_TOKEN }}
         CLOUDFIX_USERNAME: ${{ inputs.cloudfix_username }}
         CLOUDFIX_PASSWORD: ${{ inputs.cloudfix_password }}
-        ENABLE_MOCK_RECOMM: ${{ inputs.mock_recommendations }}
+        CLOUDFIX_FILE: ${{ inputs.mock_recommendations }}
         pr_number: ${{ inputs.pr_number }}
         repository: ${{ inputs.repository }}
       run: sh mainRepo/script.sh
