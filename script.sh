@@ -57,14 +57,13 @@ export CLOUDFIX_TERRAFORM_LOCAL=true
 raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
 echo "Recommendations: $raw\n$raw_recco"
 
-markup_recco=$(python mainRepo/beautifier.py "${raw_recco}");
-
 if [ -z "$raw_recco" ]
 then
-      echo "raw is empty"
-else
-      echo "raw is NOT empty"
+      raw_recco="No Recommendations"
 fi
+
+markup_recco=$(python mainRepo/beautifier.py "${raw_recco}");
+
 
 res=$(gh api repos/${repository}/issues/${pr_number}/comments \
             -f body="${markup_recco}");
