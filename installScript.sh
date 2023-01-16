@@ -29,7 +29,7 @@ export TFLINT_VERSION=v0.39.3
 
 # Install cloudfix-linter
 echo "Installing cloudfix-linter"
-(wget https://github.com/trilogy-group/cloudfix-linter-developer/releases/latest/download/cloudfix-linter-developer_${PLATFORM} \
+(wget https://github.com/trilogy-group/cloudfix-linter/releases/latest/download/cloudfix-linter-developer_${PLATFORM} \
   && mv cloudfix-linter-developer_${PLATFORM} cloudfix-linter)
 
 chmod 777 cloudfix-linter
