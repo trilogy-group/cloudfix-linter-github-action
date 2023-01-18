@@ -1,4 +1,4 @@
-#Github Action for CloudFix Linter-Terraform
+# Github Action for CloudFix Linter-Terraform
 
 ## Prelimnaries
 1.This action assumes the user will have the terraform.tfstate file in the repo and doesn't needs terraform initialization.  
