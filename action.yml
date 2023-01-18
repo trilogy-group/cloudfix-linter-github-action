@@ -1,4 +1,5 @@
 name: "Cloudfix-Linter"
+
 inputs:
   mock_recommendations:
     description: boolean to activate mock recommendations
@@ -27,7 +28,7 @@ on:
 runs:
   using: composite
   steps:
-   - name: Checkout
+    - name: Checkout
       uses: actions/checkout@v3
       
     - name: Checkout
