@@ -4,9 +4,6 @@ inputs:
     description: boolean to activate mock recommendations
     required: true
     default: 'false'
-  tf_cli_config_credentials_token: 
-    description: terraform cli config credentials token
-    required: true
   GITHUB_TOKEN:
     description: 'Github token of the repository (automatically created by Github)'
     default: ${{ github.token }}
@@ -35,12 +32,6 @@ runs:
       with:
         repository: trilogy-group/cloudfix-linter-github-action
         path: mainRepo
-
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        # terraform_version: 0.13.0:
-        cli_config_credentials_token: ${{ inputs.tf_cli_config_credentials_token }}
 
     - name: Comment Reccomendation
       id: prcomment
