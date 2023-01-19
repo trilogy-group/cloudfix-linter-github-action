@@ -30,12 +30,12 @@ runs:
         repository: ${{ inputs.repository }}
       run: echo $ENABLE_MOCK_RECOMMENDATION; sh mainRepo/script.sh
       shell: bash
-```
-
+``` 
+   
 1. Checking out current repo using [checkout](https://github.com/marketplace/actions/checkout) action in $GITHUB_WORKSPACE under mainRepo name.
 2. Creating recommendatiions by running the script.sh script
-  -> Generating mock recommandations via script (The tf.show file should be present to create recommendations)
-  -> Installing tflint and cloudfix-linter 
-  -> Initializing cloudfix-linter 
-  -> Putting recommendations over the resources
-  -> Making comments from the recommendations
+  + Generating mock recommandations via script (The tf.show file should be present to create recommendations)
+  + Installing tflint and cloudfix-linter 
+  + Initializing cloudfix-linter 
+  + Putting recommendations over the resources
+  + Making comments from the recommendations
