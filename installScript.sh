@@ -20,9 +20,9 @@ mkdir cloudfix-linter
 cd cloudfix-linter
 
 #Installing tflint 
-# higher version have breaking changes to the plugin system and hence we can't install them without changing the plugin
+# plugin updated for compatibility with tflint v0.44.1
 echo "Installing tflint"
-export TFLINT_VERSION=v0.39.3
+export TFLINT_VERSION=v0.44.1
 (wget https://github.com/terraform-linters/tflint/releases/download/${TFLINT_VERSION}/tflint_${PLATFORM}.zip \
   && unzip tflint_${PLATFORM}.zip \
   && rm tflint_${PLATFORM}.zip)
