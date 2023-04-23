@@ -16,7 +16,7 @@ then
 fi
 echo "Install complete"
 
-linter_init=$(./cloudfix-linter/bin/cloudfix-linter tf init)
+linter_init=$(~/.cloudfix-linter/bin/cloudfix-linter tf init)
 status=$?
 if [ $status != 0 ] 
 then
@@ -33,7 +33,7 @@ else
 fi
 
 export CLOUDFIX_TERRAFORM_LOCAL=true 
-raw_recco=$(./cloudfix-linter/cloudfix-linter tf recco | tail +2)
+raw_recco=$(~/.cloudfix-linter/cloudfix-linter tf recco | tail +2)
 
 if [ -z "$raw_recco" ]
 then
