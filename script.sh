@@ -8,7 +8,7 @@ then
 fi
 echo "Generate Mock Reccomendations\n"
 
-install=$(bash mainRepo/installScript.sh 2> temp)
+installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.3/install.sh | bash)
 status=$?
 if [ $status != 0 ] 
 then
@@ -16,7 +16,7 @@ then
 fi
 echo "Install complete"
 
-linter_init=$(./cloudfix-linter/cloudfix-linter init)
+linter_init=$(./cloudfix-linter/bin/cloudfix-linter tf init)
 status=$?
 if [ $status != 0 ] 
 then
@@ -33,7 +33,7 @@ else
 fi
 
 export CLOUDFIX_TERRAFORM_LOCAL=true 
-raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
+raw_recco=$(./cloudfix-linter/cloudfix-linter tf recco | tail +2)
 
 if [ -z "$raw_recco" ]
 then
