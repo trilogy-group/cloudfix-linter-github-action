@@ -8,7 +8,7 @@ then
 fi
 echo "Generate Mock Reccomendations\n"
 
-installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.3/install.sh | bash)
+installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.4/install.sh | bash)
 status=$?
 if [ $status != 0 ] 
 then
