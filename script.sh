@@ -32,8 +32,13 @@ else
     export CLOUDFIX_FILE=false
 fi
 
+tf_bin_str=""
+if [ ! -z "${TERRAFORM_BINARY_PATH}" ]; then
+    tf_bin_str="--terraform-binary-path=${TERRAFORM_BINARY_PATH}"
+fi
+
 export CLOUDFIX_TERRAFORM_LOCAL=true 
-raw_recco=$(~/.cloudfix-linter/bin/cloudfix-linter tf reco | tail +2)
+raw_recco=$(DEBUG_LEVEL=error ~/.cloudfix-linter/bin/cloudfix-linter tf reco $tf_bin_str)
 
 if [ -z "$raw_recco" ]
 then
