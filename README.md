@@ -26,6 +26,7 @@ runs:
         CLOUDFIX_USERNAME: ${{ inputs.cloudfix_username }}
         CLOUDFIX_PASSWORD: ${{ inputs.cloudfix_password }}
         ENABLE_MOCK_RECOMMENDATION: "${{ inputs.mock_recommendations }}"
+        TERRAFORM_BINARY_PATH: ${{ inputs.terraform_binary_path }}
         pr_number: ${{ inputs.pr_number }}
         repository: ${{ inputs.repository }}
       run: echo $ENABLE_MOCK_RECOMMENDATION; sh mainRepo/script.sh
