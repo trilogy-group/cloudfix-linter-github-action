@@ -4,7 +4,7 @@ if [ "$ENABLE_MOCK_RECOMMENDATION" = "true" ]
 then
     export CLOUDFIX_FILE=true
     echo $(terraform show -json)
-    terraform show -json > tf.show
+    terraform show -json | head -2 | tail -1 > tf.show
     cat tf.show
     mock_recco=$(python mainRepo/gen_recco.py tf.show)
     status=$?
