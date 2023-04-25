@@ -37,7 +37,8 @@ if [ ! -z "${TERRAFORM_BINARY_PATH}" ]; then
     tf_bin_str="--terraform-binary-path=${TERRAFORM_BINARY_PATH}"
 fi
 
-export CLOUDFIX_TERRAFORM_LOCAL=true 
+# this env var forces CLI to use a tf.show file present at project root instead of running the terraform show -json command
+# export CLOUDFIX_TERRAFORM_LOCAL=true 
 raw_recco=$(DEBUG_LEVEL=error ~/.cloudfix-linter/bin/cloudfix-linter tf reco $tf_bin_str)
 
 if [ -z "$raw_recco" ]
