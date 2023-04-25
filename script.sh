@@ -18,7 +18,7 @@ else
     export CLOUDFIX_FILE=false
 fi
 
-installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.4/install.sh | bash)
+installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.5/install.sh | bash)
 status=$?
 if [ $status != 0 ] 
 then
