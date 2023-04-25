@@ -1,12 +1,21 @@
 #!/bin/bash
-mock_recco=$(python mainRepo/gen_recco.py tf.show)
-status=$?
-if [ $status != 0 ] 
+
+if [ "$ENABLE_MOCK_RECOMMENDATION" = "true" ]
 then
-    echo "Generate Mock Reccomendations\n${mock_recco}"
-    exit 1
+    export CLOUDFIX_FILE=true
+    terraform show -json > tf.show
+    mock_recco=$(python mainRepo/gen_recco.py tf.show)
+    status=$?
+    if [ $status != 0 ] 
+    then
+        echo "Generate Mock Reccomendations\n${mock_recco}"
+        exit 1
+    fi
+    echo "Generate Mock Reccomendations\n"
+
+else
+    export CLOUDFIX_FILE=false
 fi
-echo "Generate Mock Reccomendations\n"
 
 installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.4/install.sh | bash)
 status=$?
@@ -24,13 +33,6 @@ then
     exit 1
 fi
 echo "Cloudfix-Linter initialised\n"
-
-if [ "$ENABLE_MOCK_RECOMMENDATION" = "true" ]
-then
-    export CLOUDFIX_FILE=true
-else
-    export CLOUDFIX_FILE=false
-fi
 
 tf_bin_str=""
 if [ ! -z "${TERRAFORM_BINARY_PATH}" ]; then
