@@ -36,6 +36,7 @@ runs:
       with:
         repository: trilogy-group/cloudfix-linter-github-action
         path: mainRepo
+        # ref: branch-name
 
     - name: Comment Reccomendation
       id: prcomment

@@ -3,7 +3,9 @@
 if [ "$ENABLE_MOCK_RECOMMENDATION" = "true" ]
 then
     export CLOUDFIX_FILE=true
-    terraform show -json > tf.show
+    echo $(terraform show -json)
+    terraform show -json | head -2 | tail -1 > tf.show
+    cat tf.show
     mock_recco=$(python mainRepo/gen_recco.py tf.show)
     status=$?
     if [ $status != 0 ] 
@@ -17,7 +19,7 @@ else
     export CLOUDFIX_FILE=false
 fi
 
-installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.4/install.sh | bash)
+installScriptDownload=$(wget -O - https://github.com/trilogy-group/cloudfix-linter/releases/download/v2.4.5/install.sh | bash)
 status=$?
 if [ $status != 0 ] 
 then
